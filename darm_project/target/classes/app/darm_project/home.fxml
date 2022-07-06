@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #21254a;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.darm_project.HomeController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="1.0" opacity="0.11" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@bg.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="543.0" layoutY="89.0" text="Главная страница" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="659.0" text="из аккаунта" textFill="#aeaeae">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitButton" layoutX="29.0" layoutY="654.0" mnemonicParsing="false" style="-fx-background-color: 0;" text="Выйти" textFill="#cfd4ff">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow level="0.94" />
+         </effect>
+      </Button>
+      <Button fx:id="loginButton" layoutX="565.0" layoutY="468.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Войти" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

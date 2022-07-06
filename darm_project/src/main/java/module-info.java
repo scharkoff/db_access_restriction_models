@@ -1,4 +1,4 @@
-module com.example.darm_project {
+module app.darm_project {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,7 +9,9 @@ module com.example.darm_project {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires javafx.graphics;
+    requires java.sql;
 
-    opens com.example.darm_project to javafx.fxml;
-    exports com.example.darm_project;
+    opens app.darm_project to javafx.fxml;
+    exports app.darm_project;
 }
