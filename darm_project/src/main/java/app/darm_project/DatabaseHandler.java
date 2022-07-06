@@ -15,12 +15,14 @@ public class DatabaseHandler extends Configs {
 
     // -- Write user to database
     public void signUpUser(User user) throws SQLException, ClassNotFoundException {
-        String insert = "INSERT INTO " + Const.USER_TABLE + " (" + Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + ")" +
-                "VALUES(?,?)";
+        String insert = "INSERT INTO " + Const.USER_TABLE + " (" + Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + "," +
+               Const.USERS_STUDY_GROUP + "," + Const.USERS_RANK + ")" +  "VALUES(?,?,?,?)";
 
         PreparedStatement prepState = getDbConnection().prepareStatement(insert);
         prepState.setString(1, user.getLogin());
         prepState.setString(2, user.getPassword());
+        prepState.setString(3, user.getStudyGroup());
+        prepState.setString(4, null);
 
         prepState.executeUpdate();
 

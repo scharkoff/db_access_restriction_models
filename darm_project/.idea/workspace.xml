@@ -5,29 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9433d4-db27-480a-9f52-805f1257f812" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Configs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Const.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/darm_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/darm_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/darm_project/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/darm_project/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/darm_project/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/darm_project/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/darm_project/HelloApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/darm_project/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/darm_project/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/darm_project/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Quote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/Const.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +36,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2BRIaCsmwB817kqT4qEI7nA2ybT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />

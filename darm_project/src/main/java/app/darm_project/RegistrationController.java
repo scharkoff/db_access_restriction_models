@@ -30,6 +30,9 @@ public class RegistrationController {
     private PasswordField repeatPasswordField;
 
     @FXML
+    private TextField studyGroupField;
+
+    @FXML
     void initialize() {
 
         // -- Sign up button
@@ -65,21 +68,27 @@ public class RegistrationController {
 
         String login = loginFieldInLogin.getText();
         String password = passwordField.getText();
+        String studyGroup = studyGroupField.getText();
         String repeatPassword = repeatPasswordField.getText();
 
-        if (password.equals(repeatPassword)) {
-            User user = new User(login, password);
-
-            try {
-                dbHandler.signUpUser(user);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+        // -- Empty fields check
+        if (!login.equals("") && !password.equals("") && !studyGroup.equals("") && !repeatPassword.equals("")) {
+            if (password.equals(repeatPassword)) {
+                User user = new User(login, password);
+                try {
+                    dbHandler.signUpUser(user);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Пароли не совпадают!");
             }
         } else {
-            System.out.println("Пароли не совпадают!");
+            System.out.println("Нельзя оставлять поля пустыми!");
         }
+
 
     }
 

@@ -22,17 +22,17 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="loginFieldInLogin" layoutX="488.0" layoutY="307.0" prefHeight="25.0" prefWidth="305.0" promptText="Enter the login..." style="-fx-background-color: 0; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;">
+      <TextField fx:id="loginFieldInLogin" layoutX="489.0" layoutY="248.0" prefHeight="25.0" prefWidth="305.0" promptText="Enter the login..." style="-fx-background-color: 0; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="573.0" layoutY="226.0" text="Регистрация" textFill="WHITE">
+      <Label layoutX="573.0" layoutY="165.0" text="Регистрация" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="488.0" layoutY="282.0" text="Придумайте логин" textFill="WHITE">
+      <Label layoutX="489.0" layoutY="223.0" text="Придумайте логин" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -69,6 +69,16 @@
          </font>
       </PasswordField>
       <Label layoutX="489.0" layoutY="444.0" text="Повторите пароль" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="studyGroupField" layoutX="489.0" layoutY="320.0" prefHeight="25.0" prefWidth="305.0" promptText="For example, 211-363" style="-fx-background-color: 0; -fx-border-color: #ffffff; -fx-text-fill: #ffffff;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="489.0" layoutY="295.0" text="Укажите учебную группу" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

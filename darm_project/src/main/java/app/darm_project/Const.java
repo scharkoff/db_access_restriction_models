@@ -12,11 +12,12 @@ public class Const {
     // -- Teacher quotes table
     public static final String TEACHER_QUOTES_TABLE = "teacher_quotes";
     public static final String TEACHERS_ID = "id";
+    public static final String TEACHERS_USERID = "user_id";
     public static final String TEACHERS_QUOTE = "quote";
     public static final String TEACHERS_LAST_NAME = "last_name";
     public static final String TEACHERS_FIRST_NAME = "first_name";
     public static final String TEACHERS_SECOND_NAME = "second_name";
     public static final String TEACHERS_LESSON = "lesson";
-    public static final String TEACHERS_DATE = "date";
+    public static final String TEACHERS_DATE = "publication_date";
 
 }
