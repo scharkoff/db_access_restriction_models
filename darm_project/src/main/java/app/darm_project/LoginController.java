@@ -26,8 +26,21 @@ public class LoginController {
 
     @FXML
     private Button signUpButton;
+
+    @FXML
+    private Button guestButton;
+
     @FXML
     void initialize() {
+
+        // -- Guest button
+        guestButton.setOnAction(actionEvent -> {
+            try {
+                goToScene("home", "Главная страница (доступ уровня: Гость)");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         // -- Button log in
         loginButton.setOnAction(actionEvent -> {
@@ -42,6 +55,8 @@ public class LoginController {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } else {
                 System.out.println("Нельзя оставлять поля пустыми!");
@@ -51,11 +66,15 @@ public class LoginController {
 
         // -- Button go to the register stage
         signUpButton.setOnAction(actionEvent -> {
-            goToScene("register", "Регистрация");
+            try {
+                goToScene("register", "Регистрация");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
-    private void loginUser(String loginText, String loginPassword) throws SQLException, ClassNotFoundException {
+    private void loginUser(String loginText, String loginPassword) throws SQLException, ClassNotFoundException, IOException {
         DatabaseHandler dbHandler = new DatabaseHandler();
         User user = new User();
         user.setLogin(loginText);
@@ -76,24 +95,15 @@ public class LoginController {
         }
     }
 
-    public void goToScene(String fileName, String sceneName) {
+    public void goToScene(String fileName, String sceneName) throws IOException {
         signUpButton.getScene().getWindow().hide(); // скрыть текущую сцену
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fileName + ".fxml"));
-
-        try {
-            loader.load();
-        } catch (IOException e) {
-            System.out.println("Что-то пошло не так!");
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
         Stage stage = new Stage();
+
+        Parent root = FXMLLoader.load(getClass().getResource(fileName + ".fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle(sceneName);
-        stage.showAndWait(); // ожидание загрузки сцены
+        stage.show(); // ожидание загрузки сцены
+
     }
 
 }

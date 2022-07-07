@@ -7,10 +7,10 @@ public class User {
     private String rank;
 
 
-    public User(String login, String password) {
+    public User(String login, String password, String studyGroup) {
         this.login = login;
         this.password = password;
-        this.studyGroup = null;
+        this.studyGroup = studyGroup;
         this.rank = null;
     }
 

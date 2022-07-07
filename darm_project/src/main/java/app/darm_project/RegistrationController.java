@@ -74,7 +74,7 @@ public class RegistrationController {
         // -- Empty fields check
         if (!login.equals("") && !password.equals("") && !studyGroup.equals("") && !repeatPassword.equals("")) {
             if (password.equals(repeatPassword)) {
-                User user = new User(login, password);
+                User user = new User(login, password, studyGroup);
                 try {
                     dbHandler.signUpUser(user);
                 } catch (SQLException e) {

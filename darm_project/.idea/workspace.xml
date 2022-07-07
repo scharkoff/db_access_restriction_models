@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9433d4-db27-480a-9f52-805f1257f812" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Quote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/AddQuote.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/addquote.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/Quote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Quote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -58,6 +57,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

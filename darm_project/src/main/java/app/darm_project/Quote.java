@@ -12,9 +12,9 @@ public class Quote {
     String first_name;
     String second_name;
     String lesson;
-    String publication_date;
+    Date publication_date;
 
-    public Quote(int id, int user_id, String quote, String last_name, String first_name, String second_name, String lesson, String publication_date) {
+    public Quote(int id, int user_id, String quote, String last_name, String first_name, String second_name, String lesson, Date publication_date) {
         this.id = id;
         this.user_id = user_id;
         this.quote = quote;
@@ -81,11 +81,11 @@ public class Quote {
         this.lesson = lesson;
     }
 
-    public String getPublication_date() {
+    public Date getPublication_date() {
         return publication_date;
     }
 
-    public void setPublication_date(String publication_date) {
+    public void setPublication_date(Date publication_date) {
         this.publication_date = publication_date;
     }
 }

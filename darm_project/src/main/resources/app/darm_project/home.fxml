@@ -40,29 +40,21 @@
             <Glow level="0.94" />
          </effect>
       </Button>
-      <Button fx:id="loginButton" layoutX="1116.0" layoutY="634.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #ffffff; -fx-border-radius: 20;" text="Войти" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <TableView fx:id="teachersQuotesTable" layoutX="198.0" layoutY="195.0" prefHeight="362.0" prefWidth="885.0" style="-fx-background-color: 0; -fx-border-color: #ffffff;">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="47.0" text="ID" />
-            <TableColumn fx:id="userIdColumn" prefWidth="64.0" text="USER_ID" />
-          <TableColumn fx:id="quoteColumn" prefWidth="240.0" text="QUOTE" />
-            <TableColumn fx:id="lastNameColumn" prefWidth="114.0" text="LAST_NAME" />
-            <TableColumn fx:id="firstNameColumn" prefWidth="106.0" text="FIRST_NAME" />
-            <TableColumn fx:id="secondNameColumn" prefWidth="112.0" text="SECOND_NAME" />
-            <TableColumn fx:id="lessonColumn" prefWidth="75.0" text="LESSON" />
-            <TableColumn fx:id="dateColumn" prefWidth="125.0" text="PUBLICATION_DATE" />
+          <TableColumn fx:id="idColumn" prefWidth="47.0" style="-fx-alignment: center;" text="ID" />
+            <TableColumn fx:id="userIdColumn" prefWidth="64.0" style="-fx-alignment: center;" text="USER_ID" />
+          <TableColumn fx:id="quoteColumn" prefWidth="240.0" style="-fx-alignment: center;" text="QUOTE" />
+            <TableColumn fx:id="lastNameColumn" prefWidth="114.0" style="-fx-alignment: center;" text="LAST_NAME" />
+            <TableColumn fx:id="firstNameColumn" prefWidth="106.0" style="-fx-alignment: center;" text="FIRST_NAME" />
+            <TableColumn fx:id="secondNameColumn" prefWidth="112.0" style="-fx-alignment: center;" text="SECOND_NAME" />
+            <TableColumn fx:id="lessonColumn" prefWidth="75.0" style="-fx-alignment: center;" text="LESSON" />
+            <TableColumn fx:id="dateColumn" prefWidth="125.0" style="-fx-alignment: center;" text="PUBLICATION_DATE" />
         </columns>
       </TableView>
-      <HBox layoutX="198.0" layoutY="565.0" prefHeight="56.0" prefWidth="300.0">
+      <HBox layoutX="198.0" layoutY="565.0" prefHeight="56.0" prefWidth="314.0">
          <children>
-            <Button fx:id="addNewButton" mnemonicParsing="false" style="-fx-background-color: 0;" text="Добавить" textFill="LIME">
+            <Button fx:id="addNewButton" mnemonicParsing="false" onMouseClicked="#getAddView" style="-fx-background-color: 0;" text="Добавить" textFill="LIME">
                <font>
                   <Font size="18.0" />
                </font>
@@ -74,6 +66,17 @@
                </cursor>
             </Button>
             <Button fx:id="refreshButton" mnemonicParsing="false" style="-fx-background-color: 0;" text="Обновить" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="deleteRowsButton" mnemonicParsing="false" onMouseClicked="#deleteRowsFromTable" style="-fx-background-color: 0;" text="Удалить" textFill="#ff2828">
                <font>
                   <Font size="18.0" />
                </font>
