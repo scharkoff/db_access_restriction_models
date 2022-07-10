@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,23 +32,29 @@ public class LoginController {
     private Button guestButton;
 
     @FXML
+    private Text alertMessage;
+
+    public static User user = new User();
+
+    @FXML
     void initialize() {
 
-        // -- Guest button
+        // -- Обработка событий для кнопки "Войти гостем"
         guestButton.setOnAction(actionEvent -> {
             try {
-                goToScene("home", "Главная страница (доступ уровня: Гость)");
+                user.setRank("guest");
+                goToScene("home", "Главная страница (уровень доступа: Гость)");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
-        // -- Button log in
+        // -- Обработка событий для кнопки "Войти"
         loginButton.setOnAction(actionEvent -> {
             String loginText = loginField.getText().trim();
             String loginPassword = passwordField.getText().trim();
 
-            // -- Empty fields check
+            // -- Проверка на пустые строки
             if (!loginText.equals("") && !loginPassword.equals("")) {
                 try {
                     loginUser(loginText, loginPassword);
@@ -59,12 +66,13 @@ public class LoginController {
                     e.printStackTrace();
                 }
             } else {
+                setAlertMessage("Нельзя оставлять поля пустыми!");
                 System.out.println("Нельзя оставлять поля пустыми!");
             }
         });
 
 
-        // -- Button go to the register stage
+        // -- Обработка событий для кнопки "Зарегистрироваться"
         signUpButton.setOnAction(actionEvent -> {
             try {
                 goToScene("register", "Регистрация");
@@ -74,6 +82,7 @@ public class LoginController {
         });
     }
 
+    // -- Авторизация пользователя
     private void loginUser(String loginText, String loginPassword) throws SQLException, ClassNotFoundException, IOException {
         DatabaseHandler dbHandler = new DatabaseHandler();
         User user = new User();
@@ -81,20 +90,29 @@ public class LoginController {
         user.setPassword(loginPassword);
         ResultSet result = dbHandler.getUser(user);
 
-        int counter = 0;
 
-        while(result.next()) {
-            counter++;
-        }
+        if (result.next()) {
+            do {
+                this.user = user;
+                user.setId(result.getInt(1));
+                user.setStudyGroup(result.getString(4));
+                user.setRank(result.getString(5));
+                System.out.println("Авторизация прошла успешно!");
 
-        if (counter >= 1) {
-            System.out.println("Пользователь найден! Авторизация прошла успешно!");
-            goToScene("home", "Главная страница");
+                if (user.getRank().equals("admin")) {
+                    goToScene("home", "Главная страница (уровень доступа: Администратор)");
+                } else if (user.getRank().equals("user")) {
+                    goToScene("home", "Главная страница (уровень доступа: Обычный пользователь)");
+                } else if (user.getRank().equals("headman")) {
+                    goToScene("home", "Главная страница (уровень доступа: Староста)");
+                }
+            } while(result.next());
         } else {
-            System.out.println("Пользователь не найден!");
+            setAlertMessage("Пользователь не найден!");
         }
     }
 
+    // -- Перейти на другое окно
     public void goToScene(String fileName, String sceneName) throws IOException {
         signUpButton.getScene().getWindow().hide(); // скрыть текущую сцену
         Stage stage = new Stage();
@@ -103,7 +121,11 @@ public class LoginController {
         stage.setScene(new Scene(root));
         stage.setTitle(sceneName);
         stage.show(); // ожидание загрузки сцены
+    }
 
+    // -- Установить уведомление
+    public void setAlertMessage(String text) {
+        alertMessage.setText(text);
     }
 
 }

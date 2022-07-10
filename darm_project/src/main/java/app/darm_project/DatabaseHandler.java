@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
+
+    // -- Установить соединение с sql database
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
         String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + dbName;
 
@@ -13,7 +15,7 @@ public class DatabaseHandler extends Configs {
         return dbConnection;
     }
 
-    // -- Write user to database
+    // -- Зарегистрировать пользователя в sql database
     public void signUpUser(User user) throws SQLException, ClassNotFoundException {
         String insert = "INSERT INTO " + Const.USER_TABLE + " (" + Const.USERS_LOGIN + "," + Const.USERS_PASSWORD + "," +
                Const.USERS_STUDY_GROUP + "," + Const.USERS_RANK + ")" +  "VALUES(?,?,?,?)";
@@ -22,13 +24,12 @@ public class DatabaseHandler extends Configs {
         prepState.setString(1, user.getLogin());
         prepState.setString(2, user.getPassword());
         prepState.setString(3, user.getStudyGroup());
-        prepState.setString(4, null);
+        prepState.setString(4, "user");
 
         prepState.executeUpdate();
-
     }
 
-    // -- Read from database
+    // -- Получить логин и пароль пользователя с sql database
     public ResultSet getUser(User user) throws SQLException, ClassNotFoundException {
         ResultSet resSet = null;
 

@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 
 
-public class AddQuote {
+public class EditQuote {
 
     @FXML
     private Button cleanButton;
@@ -80,7 +80,7 @@ public class AddQuote {
             } else {
                 getQuery();
                 insert();
-                setAlertText("Запись успешно добавлена!", "#31e100");
+                setAlertText("Запись успешно изменена!", "#31e100");
             }
         } catch (Exception e) {
             setAlertText("Дата записана в неправильном формате!", "red");
@@ -110,9 +110,9 @@ public class AddQuote {
     // -- Заполнение sql запроса
     private void getQuery() throws SQLException, ClassNotFoundException {
         connection = db.getDbConnection();
-        query = "INSERT INTO " + Const.TEACHER_QUOTES_TABLE + " (" + Const.TEACHERS_USERID + ", " + Const.TEACHERS_QUOTE + ", " + Const.TEACHERS_LAST_NAME + ", " +
-                Const.TEACHERS_FIRST_NAME + ", " + Const.TEACHERS_SECOND_NAME + ", " + Const.TEACHERS_LESSON
-                + ", " + Const.TEACHERS_DATE + ") VALUES(?,?,?,?,?,?,?)";
+        query = "UPDATE " + Const.TEACHER_QUOTES_TABLE + " SET "  + Const.TEACHERS_USERID + "=?, " + Const.TEACHERS_QUOTE + "=?, " + Const.TEACHERS_LAST_NAME + "=?, " +
+                Const.TEACHERS_FIRST_NAME + "=?, " + Const.TEACHERS_SECOND_NAME + "=?, " + Const.TEACHERS_LESSON
+                + "=?, " + Const.TEACHERS_DATE + "=? WHERE id=" + HomeController.currentQuoteId;
     }
 
     // -- Установить уведомление

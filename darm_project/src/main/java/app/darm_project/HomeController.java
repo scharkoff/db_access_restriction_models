@@ -2,6 +2,7 @@ package app.darm_project;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,12 +12,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class HomeController {
 
@@ -60,7 +64,22 @@ public class HomeController {
     private Button deleteRowsButton;
 
     @FXML
+    private Button editRowsButton;
+
+    @FXML
     private Button addNewButton;
+
+    @FXML
+    private Text userIdText;
+
+    @FXML
+    private Text userLoginText;
+
+    @FXML
+    private Text userStudyGroupText;
+
+    @FXML
+    private Text alertText;
 
     String query = null;
     Connection connection = null;
@@ -69,22 +88,72 @@ public class HomeController {
     Quote quote = null;
     DatabaseHandler db = new DatabaseHandler();
 
+    public static int currentQuoteId;
+
+    // -- Массив для хранения данных с sql database
     ObservableList<Quote> quotesList = FXCollections.observableArrayList();
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-        loadDate();
 
+        // -- Обработка данных для режима гостя
+        if (LoginController.user.getRank().equals("guest")) {
+            setUserData("Гость", 0, "null");
+            addNewButton.setDisable(true);
+            deleteRowsButton.setDisable(true);
+            editRowsButton.setDisable(true);
+        } else setUserData(LoginController.user.getLogin(), LoginController.user.getId(), LoginController.user.getStudyGroup());
+
+        // -- Если пользователь выделил не свою запись, кнопка "удалить" будет недоступна
+        if (LoginController.user.getRank().equals("user")) {
+            deleteRowsButton.setDisable(true);
+            editRowsButton.setDisable(true);
+            teachersQuotesTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    if ((LoginController.user.getId() == teachersQuotesTable.getSelectionModel().getSelectedItem().user_id)) {
+                        deleteRowsButton.setDisable(false);
+                        editRowsButton.setDisable(false);
+                    } else {
+                        deleteRowsButton.setDisable(true);
+                        editRowsButton.setDisable(true);
+                    }
+                }
+            });
+        }
+
+        loadDate(); // -- загрузить актуальные данные в таблицу
+
+        // -- Обработка событий при нажатии на кнопку "Обновить"
         refreshButton.setOnAction(actionEvent -> {
             try {
                 refreshTable();
+                setAlertText("Все данные обновлены!", "yellow");
+                CompletableFuture.delayedExecutor(2, TimeUnit.SECONDS).execute(() -> {
+                    setAlertText("", "");
+                });
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
 
+        // -- Обработка событий при нажатии на кнопку "Изменить"
+        editRowsButton.setOnAction(actionEvent -> {
+            teachersQuotesTable.getSelectionModel().getSelectedItem();
+            try {
+                db.getDbConnection();
+                query = "UPDATE " + Const.TEACHER_QUOTES_TABLE + " SET id=";
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        // -- Обработка событий при нажатии на кнопку "Выйти"
         exitButton.setOnAction(actionEvent -> {
-            exitButton.getScene().getWindow().hide(); // скрыть текущую сцену
+            exitButton.getScene().getWindow().hide();
 
             Stage stage = new Stage();
 
@@ -96,14 +165,32 @@ public class HomeController {
             }
             stage.setScene(new Scene(root));
             stage.setTitle("Авторизация");
-            stage.show(); // ожидание загрузки сцены
+            stage.show();
         });
     }
 
+    // -- Обновить данные в таблице
     private void refreshTable() throws SQLException {
         quotesList.clear();
 
-        query = "SELECT * FROM " + Const.TEACHER_QUOTES_TABLE;
+        if (LoginController.user.getRank().equals("guest")) query = "SELECT * FROM " + Const.TEACHER_QUOTES_TABLE;
+        if (LoginController.user.getRank().equals("admin")) query = "SELECT * FROM " + Const.TEACHER_QUOTES_TABLE;
+        if (LoginController.user.getRank().equals("user")) query =
+                "SELECT teacher_quotes.id, teacher_quotes.user_id, teacher_quotes.quote, teacher_quotes.last_name, teacher_quotes.first_name, " +
+                "teacher_quotes.second_name, teacher_quotes.lesson, teacher_quotes.publication_date " +
+                "FROM users " +
+                "JOIN teacher_quotes ON (users.id = teacher_quotes.user_id) " +
+                "WHERE (users.study_group ='" + LoginController.user.getStudyGroup() + "')";
+
+        if (LoginController.user.getRank().equals("headman")) query =
+                "SELECT teacher_quotes.id, teacher_quotes.user_id, teacher_quotes.quote, teacher_quotes.last_name, teacher_quotes.first_name, " +
+                        "teacher_quotes.second_name, teacher_quotes.lesson, teacher_quotes.publication_date " +
+                        "FROM users " +
+                        "JOIN teacher_quotes ON (users.id = teacher_quotes.user_id) " +
+                        "WHERE (users.study_group ='" + LoginController.user.getStudyGroup() + "')";
+
+
+
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
 
@@ -120,12 +207,12 @@ public class HomeController {
                     )
             );
 
-
             teachersQuotesTable.setItems(quotesList);
         }
 
     }
 
+    // -- Загрузить данные с базы данных в приложение
     private void loadDate() throws SQLException, ClassNotFoundException {
 
         connection = db.getDbConnection();
@@ -139,12 +226,9 @@ public class HomeController {
         secondNameColumn.setCellValueFactory(new PropertyValueFactory<>("second_name"));
         lessonColumn.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("publication_date"));
-
-
     }
 
-
-    @FXML
+    @FXML // -- Открыть окно с добавлением цитаты на кнопку "Добавить"
     public void getAddView(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
 
         Parent parent = FXMLLoader.load(getClass().getResource("addquote.fxml"));
@@ -157,7 +241,7 @@ public class HomeController {
         stage.show();
     }
 
-    @FXML
+    @FXML // -- Удалить выделенный элемент
     public void deleteRowsFromTable(MouseEvent event) throws SQLException, ClassNotFoundException {
         connection = db.getDbConnection();
 
@@ -165,8 +249,37 @@ public class HomeController {
         query = "DELETE FROM " + Const.TEACHER_QUOTES_TABLE + " WHERE " + Const.TEACHERS_ID + "=" + id;
         preparedStatement = connection.prepareStatement(query);
         preparedStatement.execute();
+        refreshTable();
+        setAlertText("Запись успешно удалена!", "#33ff00");
+    }
+
+    @FXML // -- Изменить выделенный элемент
+    void editCurrentRow(MouseEvent event) throws SQLException, ClassNotFoundException, IOException {
+        currentQuoteId = teachersQuotesTable.getSelectionModel().getSelectedItem().id;
+        Parent parent = FXMLLoader.load(getClass().getResource("editquote.fxml"));
+
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Изменить цитату");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
 
     }
+
+    // -- Подстановка личных данных пользователя
+    public void setUserData(String login, int id, String group) {
+        userLoginText.setText(login);
+        userIdText.setText(String.valueOf(id));
+        userStudyGroupText.setText(group);
+    }
+
+    // -- Установить уведомление
+    public void setAlertText(String text, String color) {
+        alertText.setStyle("-fx-fill: " + color);
+        alertText.setText(text);
+    }
+
 
 
 }

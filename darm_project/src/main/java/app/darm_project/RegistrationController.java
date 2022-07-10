@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,17 +34,19 @@ public class RegistrationController {
     private TextField studyGroupField;
 
     @FXML
+    private Text alertMessage;
+
+    @FXML
     void initialize() {
 
-        // -- Sign up button
+        // -- Обработка событий для кнопки "Зарегистрироваться"
         regButton.setOnAction(actionEvent -> {
             signUpNewUser();
-
         });
 
-        // -- Button go to log in stage
+        // -- Обработка событий для кнопки "Войти"
         goToLoginButton.setOnAction(actionEvent -> {
-            goToLoginButton.getScene().getWindow().hide(); // скрыть текущую сцену
+            goToLoginButton.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("login.fxml"));
@@ -52,6 +55,7 @@ public class RegistrationController {
                 loader.load();
             } catch (IOException e) {
                 System.out.println("Что-то пошло не так!");
+                setAlertMessage("Что-то пошло не так!", "red");
                 e.printStackTrace();
             }
 
@@ -59,37 +63,48 @@ public class RegistrationController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Авторизация");
-            stage.showAndWait(); // ожидание загрузки сцены
+            stage.showAndWait();
         });
     }
 
+    // -- Регистрация пользователя
     private void signUpNewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
+        // -- Получение введенных данных с полей
         String login = loginFieldInLogin.getText();
         String password = passwordField.getText();
         String studyGroup = studyGroupField.getText();
         String repeatPassword = repeatPasswordField.getText();
 
-        // -- Empty fields check
+        // -- Проверка на пустые строки
         if (!login.equals("") && !password.equals("") && !studyGroup.equals("") && !repeatPassword.equals("")) {
             if (password.equals(repeatPassword)) {
                 User user = new User(login, password, studyGroup);
+                setAlertMessage("Вы успешно зарегистрировались!", "#33ff00");
                 try {
                     dbHandler.signUpUser(user);
                 } catch (SQLException e) {
                     e.printStackTrace();
+                    setAlertMessage("Данный логин уже используется!", "red");
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
+                    setAlertMessage("Что-то пошло не так!", "red");
                 }
             } else {
-                System.out.println("Пароли не совпадают!");
+                setAlertMessage("Пароли не совпадают!", "red");
             }
         } else {
-            System.out.println("Нельзя оставлять поля пустыми!");
+           setAlertMessage("Нельзя оставлять поля пустыми!", "red");
         }
 
 
+    }
+
+    // -- Установить уведомление
+    public void setAlertMessage(String text, String color) {
+        alertMessage.setStyle("-fx-fill: " + color);
+        alertMessage.setText(text);
     }
 
 }

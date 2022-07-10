@@ -1,6 +1,7 @@
 package app.darm_project;
 
 public class User {
+    private int id;
     private String login;
     private String password;
     private String studyGroup;
@@ -46,5 +47,13 @@ public class User {
 
     public void setRank(String rank) {
         this.rank = rank;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
