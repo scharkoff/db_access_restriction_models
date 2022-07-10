@@ -89,6 +89,7 @@ public class HomeController {
     DatabaseHandler db = new DatabaseHandler();
 
     public static int currentQuoteId;
+    public static int currentQuoteUserId;
 
     // -- Массив для хранения данных с sql database
     ObservableList<Quote> quotesList = FXCollections.observableArrayList();
@@ -256,6 +257,7 @@ public class HomeController {
     @FXML // -- Изменить выделенный элемент
     void editCurrentRow(MouseEvent event) throws SQLException, ClassNotFoundException, IOException {
         currentQuoteId = teachersQuotesTable.getSelectionModel().getSelectedItem().id;
+        currentQuoteUserId = teachersQuotesTable.getSelectionModel().getSelectedItem().user_id;
         Parent parent = FXMLLoader.load(getClass().getResource("editquote.fxml"));
 
         Scene scene = new Scene(parent);

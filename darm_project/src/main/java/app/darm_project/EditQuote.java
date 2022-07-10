@@ -91,7 +91,7 @@ public class EditQuote {
     // -- Добавить запись в sql database
     private void insert() throws SQLException {
         preparedStatement = connection.prepareStatement(query);
-        preparedStatement.setInt(1, LoginController.user.getId());
+        preparedStatement.setInt(1, HomeController.currentQuoteUserId);
         preparedStatement.setString(2, quoteField.getText());
         preparedStatement.setString(3, lastNameField.getText());
         preparedStatement.setString(4, firstNameField.getText());

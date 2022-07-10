@@ -67,7 +67,6 @@ public class LoginController {
                 }
             } else {
                 setAlertMessage("Нельзя оставлять поля пустыми!");
-                System.out.println("Нельзя оставлять поля пустыми!");
             }
         });
 
@@ -114,13 +113,13 @@ public class LoginController {
 
     // -- Перейти на другое окно
     public void goToScene(String fileName, String sceneName) throws IOException {
-        signUpButton.getScene().getWindow().hide(); // скрыть текущую сцену
+        signUpButton.getScene().getWindow().hide();
         Stage stage = new Stage();
 
         Parent root = FXMLLoader.load(getClass().getResource(fileName + ".fxml"));
         stage.setScene(new Scene(root));
         stage.setTitle(sceneName);
-        stage.show(); // ожидание загрузки сцены
+        stage.show();
     }
 
     // -- Установить уведомление

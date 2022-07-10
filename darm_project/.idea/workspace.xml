@@ -5,29 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9433d4-db27-480a-9f52-805f1257f812" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/EditQuote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/editquote.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/AddQuote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/AddQuote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/EditQuote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/EditQuote.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/addquote.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/addquote.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/register.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/AddQuote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/AddQuote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/DatabaseHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/addquote.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/addquote.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/register.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
