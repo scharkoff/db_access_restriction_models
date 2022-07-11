@@ -76,6 +76,9 @@ public class HomeController {
     private Text userLoginText;
 
     @FXML
+    private Text countQuotes;
+
+    @FXML
     private Text userStudyGroupText;
 
     @FXML
@@ -91,18 +94,20 @@ public class HomeController {
     public static int currentQuoteId;
     public static int currentQuoteUserId;
 
+    int counter = 0;
+
     // -- Массив для хранения данных с sql database
     ObservableList<Quote> quotesList = FXCollections.observableArrayList();
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-
         // -- Обработка данных для режима гостя
         if (LoginController.user.getRank().equals("guest")) {
             setUserData("Гость", 0, "null");
             addNewButton.setDisable(true);
             deleteRowsButton.setDisable(true);
             editRowsButton.setDisable(true);
+            countQuotes.setVisible(false);
         } else setUserData(LoginController.user.getLogin(), LoginController.user.getId(), LoginController.user.getStudyGroup());
 
         // -- Если пользователь выделил не свою запись, кнопки будут недоступны
@@ -130,6 +135,7 @@ public class HomeController {
             try {
                 refreshTable();
                 setAlertText("Все данные обновлены!", "yellow");
+                countQuotes.setText(String.valueOf(countQuotes()));
                 CompletableFuture.delayedExecutor(2, TimeUnit.SECONDS).execute(() -> {
                     setAlertText("", "");
                 });
@@ -177,8 +183,6 @@ public class HomeController {
                         "JOIN teacher_quotes ON (users.id = teacher_quotes.user_id) " +
                         "WHERE (users.study_group ='" + LoginController.user.getStudyGroup() + "')";
 
-
-
         preparedStatement = connection.prepareStatement(query);
         resultSet = preparedStatement.executeQuery();
 
@@ -214,6 +218,9 @@ public class HomeController {
         secondNameColumn.setCellValueFactory(new PropertyValueFactory<>("second_name"));
         lessonColumn.setCellValueFactory(new PropertyValueFactory<>("lesson"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("publication_date"));
+
+        // -- Установить количество цитат пользователя
+        countQuotes.setText(String.valueOf(countQuotes()));
     }
 
     @FXML // -- Открыть окно с добавлением цитаты на кнопку "Добавить"
@@ -239,6 +246,7 @@ public class HomeController {
         preparedStatement.execute();
         refreshTable();
         setAlertText("Запись успешно удалена!", "#33ff00");
+        countQuotes.setText(String.valueOf(countQuotes()));
     }
 
     @FXML // -- Изменить выделенный элемент
@@ -267,6 +275,17 @@ public class HomeController {
         alertText.setStyle("-fx-fill: " + color);
         alertText.setText(text);
     }
+
+    // -- Посчитать количество цитат
+    public int countQuotes() {
+        counter = 0;
+       for (int i = 0; i < teachersQuotesTable.getItems().size(); i++) {
+           if (LoginController.user.getId() == teachersQuotesTable.getItems().get(i).user_id) {
+               counter++;
+           }
+       }
+       return counter;
+   }
 
 
 

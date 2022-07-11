@@ -91,8 +91,6 @@ public class LoginController {
         user.setLogin(loginText);
         user.setPassword(loginPassword);
         ResultSet result = dbHandler.getUser(user);
-
-
         if (result.next()) {
             do {
                 this.user = user;

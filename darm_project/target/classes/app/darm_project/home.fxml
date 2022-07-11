@@ -102,7 +102,7 @@
             </Button>
          </children>
       </HBox>
-      <VBox layoutX="1004.0" layoutY="7.0" prefHeight="62.0" prefWidth="280.0">
+      <VBox layoutX="1004.0" layoutY="7.0" prefHeight="112.0" prefWidth="298.0">
          <children>
             <HBox prefHeight="19.0" prefWidth="274.0">
                <children>
@@ -146,6 +146,23 @@
                      </font>
                   </Text>
                   <Text fx:id="userStudyGroupText" fill="#cfd4ff" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL" wrappingWidth="162.0000000000001">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <effect>
+                        <Glow level="1.0" />
+                     </effect>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="298.0">
+               <children>
+                  <Text fill="#aeaeae" strokeType="OUTSIDE" strokeWidth="0.0" text="Кол-во цитат:" wrappingWidth="94.912109375">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="countQuotes" fill="#cfd4ff" strokeType="OUTSIDE" strokeWidth="0.0" text="NULL" wrappingWidth="80.13671875">
                      <font>
                         <Font size="14.0" />
                      </font>
