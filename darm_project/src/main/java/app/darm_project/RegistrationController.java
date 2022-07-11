@@ -97,8 +97,6 @@ public class RegistrationController {
         } else {
            setAlertMessage("Нельзя оставлять поля пустыми!", "red");
         }
-
-
     }
 
     // -- Установить уведомление

@@ -105,7 +105,7 @@ public class HomeController {
             editRowsButton.setDisable(true);
         } else setUserData(LoginController.user.getLogin(), LoginController.user.getId(), LoginController.user.getStudyGroup());
 
-        // -- Если пользователь выделил не свою запись, кнопка "удалить" будет недоступна
+        // -- Если пользователь выделил не свою запись, кнопки будут недоступны
         if (LoginController.user.getRank().equals("user")) {
             deleteRowsButton.setDisable(true);
             editRowsButton.setDisable(true);
@@ -138,19 +138,6 @@ public class HomeController {
             }
         });
 
-        // -- Обработка событий при нажатии на кнопку "Изменить"
-        editRowsButton.setOnAction(actionEvent -> {
-            teachersQuotesTable.getSelectionModel().getSelectedItem();
-            try {
-                db.getDbConnection();
-                query = "UPDATE " + Const.TEACHER_QUOTES_TABLE + " SET id=";
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-        });
 
         // -- Обработка событий при нажатии на кнопку "Выйти"
         exitButton.setOnAction(actionEvent -> {
@@ -266,7 +253,6 @@ public class HomeController {
         stage.setTitle("Изменить цитату");
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
-
     }
 
     // -- Подстановка личных данных пользователя

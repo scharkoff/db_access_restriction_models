@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="darm_project:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab9433d4-db27-480a-9f52-805f1257f812" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/darm_project_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/Main_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/EditQuote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/EditQuote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darm_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/darm_project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/darm_project/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app/darm_project/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/app/darm_project/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/app/darm_project/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +47,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2BRIaCsmwB817kqT4qEI7nA2ybT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,13 +57,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/app/darm_project" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx-sdk-18.0.1/bin/vcruntime140_1.dll" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15316117" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -88,8 +99,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656862533589</updated>
+      <workItem from="1657468990397" duration="797000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -102,5 +117,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

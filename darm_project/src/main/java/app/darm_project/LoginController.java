@@ -7,12 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 public class LoginController {
 
@@ -96,7 +99,6 @@ public class LoginController {
                 user.setId(result.getInt(1));
                 user.setStudyGroup(result.getString(4));
                 user.setRank(result.getString(5));
-                System.out.println("Авторизация прошла успешно!");
 
                 if (user.getRank().equals("admin")) {
                     goToScene("home", "Главная страница (уровень доступа: Администратор)");
@@ -126,5 +128,7 @@ public class LoginController {
     public void setAlertMessage(String text) {
         alertMessage.setText(text);
     }
+
+
 
 }
