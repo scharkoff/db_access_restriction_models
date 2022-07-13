@@ -80,7 +80,7 @@ public class AddQuote {
             } else {
                 getQuery();
                 insert();
-                setAlertText("Запись успешно добавлена!", "#31e100");
+                setAlertText("Запись успешно добавлена!", "green");
             }
         } catch (Exception e) {
             setAlertText("Дата записана в неправильном формате!", "red");

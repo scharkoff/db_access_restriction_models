@@ -70,6 +70,9 @@ public class HomeController {
     private Button addNewButton;
 
     @FXML
+    private Button changeUserDataButton;
+
+    @FXML
     private Text userIdText;
 
     @FXML
@@ -103,12 +106,15 @@ public class HomeController {
     void initialize() throws SQLException, ClassNotFoundException {
         // -- Обработка данных для режима гостя
         if (LoginController.user.getRank().equals("guest")) {
+
             setUserData("Гость", 0, "null");
             addNewButton.setDisable(true);
             deleteRowsButton.setDisable(true);
             editRowsButton.setDisable(true);
+            changeUserDataButton.setDisable(true);
             countQuotes.setVisible(false);
         } else setUserData(LoginController.user.getLogin(), LoginController.user.getId(), LoginController.user.getStudyGroup());
+
 
         // -- Если пользователь выделил не свою запись, кнопки будут недоступны
         if (LoginController.user.getRank().equals("user")) {
@@ -133,6 +139,7 @@ public class HomeController {
         // -- Обработка событий при нажатии на кнопку "Обновить"
         refreshButton.setOnAction(actionEvent -> {
             try {
+                userLoginText.setText(LoginController.user.getLogin());
                 refreshTable();
                 setAlertText("Все данные обновлены!", "yellow");
                 countQuotes.setText(String.valueOf(countQuotes()));
@@ -167,23 +174,18 @@ public class HomeController {
     private void refreshTable() throws SQLException {
         quotesList.clear();
 
-        if (LoginController.user.getRank().equals("guest")) query = "SELECT * FROM " + Const.TEACHER_QUOTES_TABLE;
-        if (LoginController.user.getRank().equals("admin")) query = "SELECT * FROM " + Const.TEACHER_QUOTES_TABLE;
-        if (LoginController.user.getRank().equals("user")) query =
+        if (LoginController.user.getRank().equals("guest")) query = "SELECT * FROM teacher_quotes";
+        if (LoginController.user.getRank().equals("admin")) query = "SELECT * FROM teacher_quotes";
+        if (LoginController.user.getRank().equals("user") || LoginController.user.getRank().equals("headman")) query =
                 "SELECT teacher_quotes.id, teacher_quotes.user_id, teacher_quotes.quote, teacher_quotes.last_name, teacher_quotes.first_name, " +
                 "teacher_quotes.second_name, teacher_quotes.lesson, teacher_quotes.publication_date " +
                 "FROM users " +
                 "JOIN teacher_quotes ON (users.id = teacher_quotes.user_id) " +
-                "WHERE (users.study_group ='" + LoginController.user.getStudyGroup() + "')";
-
-        if (LoginController.user.getRank().equals("headman")) query =
-                "SELECT teacher_quotes.id, teacher_quotes.user_id, teacher_quotes.quote, teacher_quotes.last_name, teacher_quotes.first_name, " +
-                        "teacher_quotes.second_name, teacher_quotes.lesson, teacher_quotes.publication_date " +
-                        "FROM users " +
-                        "JOIN teacher_quotes ON (users.id = teacher_quotes.user_id) " +
-                        "WHERE (users.study_group ='" + LoginController.user.getStudyGroup() + "')";
+                "WHERE (users.study_group =?)";
 
         preparedStatement = connection.prepareStatement(query);
+        if (LoginController.user.getRank().equals("user") || LoginController.user.getRank().equals("headman")) preparedStatement.setString(1, LoginController.user.getStudyGroup());
+
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
@@ -259,6 +261,18 @@ public class HomeController {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle("Изменить цитату");
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
+    }
+
+    @FXML // -- Открыть окно изменения данных пользователя
+    void changeUserData(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("changeuserdata.fxml"));
+
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.setTitle("Изменить регистрационные данные");
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
